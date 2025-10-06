@@ -12,7 +12,7 @@ def calculate_return(ticker, start_date, end_date, max_loss_ratio, target_win_ra
     # Create a new column in DataFrame to track results
     data['Result'] = None
     data = data.reset_index()
-    print(data)
+    
 
     for index, row in data.iterrows():
         if row.isnull().any():
@@ -44,6 +44,8 @@ def calculate_return(ticker, start_date, end_date, max_loss_ratio, target_win_ra
     loss_roi = loss_cum_return / loss if loss > 0 else 0
     both_roi = both_cum_return / both if both > 0 else 0
     draw_roi = draw_cum_return / draw if draw > 0 else 0
+
+    st.write(data)
 
     return win, loss, both, draw, win_roi, loss_roi, both_roi, draw_roi, data
 
@@ -89,6 +91,7 @@ if st.sidebar.button("Calculate"):
 
     with tab4:
         st.write(data_m[data_m['Result'] == 'Draw'])
+
 
 
 
