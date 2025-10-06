@@ -61,7 +61,7 @@ if st.sidebar.button("Calculate"):
     )
 
     st.write("### Results")
-    st.write(f"Total Trades: {len(data_m.dropna(subset=['Result']))}")
+    # st.write(f"Total Trades: {len(data_m.dropna(subset=['Result']))}")
     st.write(f"Win count: {win}")
     st.write(f"Loss count: {loss}")
     st.write(f"Both Win & Loss count: {both}")
@@ -87,3 +87,4 @@ if st.sidebar.button("Calculate"):
 
     with tab4:
         st.write(data_m[data_m['Result'] == 'Draw'])
+
