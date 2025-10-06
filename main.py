@@ -11,6 +11,7 @@ def calculate_return(ticker, start_date, end_date, max_loss_ratio, target_win_ra
 
     # Create a new column in DataFrame to track results
     data['Result'] = None
+    data = data.reset_index()
 
     for index, row in data.iterrows():
         if row.isnull().any():
@@ -87,4 +88,5 @@ if st.sidebar.button("Calculate"):
 
     with tab4:
         st.write(data_m[data_m['Result'] == 'Draw'])
+
 
