@@ -50,20 +50,19 @@ start_date = st.sidebar.date_input("Start Date", value=pd.to_datetime("2020-01-0
 end_date = st.sidebar.date_input("End Date", value=pd.to_datetime("2021-12-31"))
 max_loss_ratio = st.sidebar.slider("Max Loss Ratio (%)", min_value=0.0, max_value=5.0, value=0.5) / 100
 target_win_ratio = st.sidebar.slider("Target Win Ratio (%)", min_value=0.0, max_value=5.0, value=1.0) / 100
-print(ticker)
 
-# if st.sidebar.button("Calculate"):
-#     win, loss, both, draw, win_roi, loss_roi, both_roi, draw_roi, data_m = calculate_return(
-#         ticker, start_date, end_date, max_loss_ratio, target_win_ratio
-#     )
+if st.sidebar.button("Calculate"):
+    win, loss, both, draw, win_roi, loss_roi, both_roi, draw_roi, data_m = calculate_return(
+        ticker, start_date, end_date, max_loss_ratio, target_win_ratio
+    )
 
-#     st.write("### Results")
-#     st.write(f"Total Trades: {data_m}")
-#     st.write(f"Win count: {win}")
-#     st.write(f"Loss count: {loss}")
-#     st.write(f"Both Win & Loss count: {both}")
-#     st.write(f"Draw count: {draw}")
-#     st.write(f"Expected ROI for Win: {win_roi:.2%}")
-#     st.write(f"Expected ROI for Loss: {loss_roi:.2%}")
-#     st.write(f"Expected ROI for Both: {both_roi:.2%}")
-#     st.write(f"Expected ROI for Draw: {draw_roi:.2%}")
+    st.write("### Results")
+    st.write(f"Total Trades: {len(data_m)}")
+    st.write(f"Win count: {win}")
+    st.write(f"Loss count: {loss}")
+    st.write(f"Both Win & Loss count: {both}")
+    st.write(f"Draw count: {draw}")
+    st.write(f"Expected ROI for Win: {win_roi:.2%}")
+    st.write(f"Expected ROI for Loss: {loss_roi:.2%}")
+    st.write(f"Expected ROI for Both: {both_roi:.2%}")
+    st.write(f"Expected ROI for Draw: {draw_roi:.2%}")
