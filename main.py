@@ -48,7 +48,7 @@ st.sidebar.header("Input Parameters")
 ticker = st.sidebar.text_input("Enter Ticker", 'AAPL')
 start_date = st.sidebar.date_input("Start Date", value=pd.to_datetime("2020-01-01"))
 end_date = st.sidebar.date_input("End Date", value=pd.to_datetime("2021-12-31"))
-max_loss_ratio = st.sidebar.slider("Max Loss Ratio (%)", min_value=0.0, max_value=5.0, value=0.5) / 100
+max_loss_ratio = st.sidebar.slider("Max Loss Ratio (%)", min_value=0.0, max_value=1.0, value=0.05) / 100
 target_win_ratio = st.sidebar.slider("Target Win Ratio (%)", min_value=0.0, max_value=5.0, value=1.0) / 100
 
 if st.sidebar.button("Calculate"):
@@ -66,3 +66,4 @@ if st.sidebar.button("Calculate"):
     st.write(f"Expected ROI for Loss: {loss_roi:.2%}")
     st.write(f"Expected ROI for Both: {both_roi:.2%}")
     st.write(f"Expected ROI for Draw: {draw_roi:.2%}")
+
