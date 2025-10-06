@@ -69,7 +69,10 @@ if st.sidebar.button("Calculate"):
         st.write(f"Expected ROI for Draw: {draw_roi.item():.2%}")
     except AttributeError:
         st.write(f"Expected ROI for Draw: {draw_roi}")
-        
+
+    st.divider()
+    st.write(data_m)
+
 
 
 
