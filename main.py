@@ -2,13 +2,21 @@ import streamlit as st
 import yfinance as yf
 import pandas as pd
 
+        
 def calculate_return(ticker, start_date, end_date, max_loss_ratio, target_win_ratio):
-    # Download data with error handling
     try:
         data = yf.download(ticker, start=start_date, end=end_date, auto_adjust=False)
         if data.empty:
             st.error("No data fetched. Please check the ticker symbol or the date range.")
             return None, None, None, None, None, None, None, None, pd.DataFrame()
+
+        # Flatten columns if there's a MultiIndex
+        if isinstance(data.columns, pd.MultiIndex):
+            data.columns = data.columns.get_level_values(1)
+        
+        # Proceed with your trading logic
+        data['Result'] = None
+        
     except Exception as e:
         st.error(f"Failed to fetch data: {e}")
         return None, None, None, None, None, None, None, None, pd.DataFrame()
@@ -107,3 +115,4 @@ if st.sidebar.button("Calculate"):
             st.error("The 'Result' column is missing from the DataFrame.")
     else:
         st.warning("No trades matched the conditions or no proper data returned.")
+
