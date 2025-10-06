@@ -38,6 +38,11 @@ def calculate_return(ticker, start_date, end_date, max_loss_ratio, target_win_ra
     both_roi = both_cum_return / both if both > 0 else 0
     draw_roi = draw_cum_return / draw if draw > 0 else 0
 
+    data['win'] = win
+    data['loss'] = loss
+    data['both'] = both
+    data['draw'] = draw
+
     return win, loss, both, draw, win_roi, loss_roi, both_roi, draw_roi, data
 
 # Streamlit app
@@ -72,6 +77,7 @@ if st.sidebar.button("Calculate"):
 
     st.divider()
     st.write(data_m)
+
 
 
 
