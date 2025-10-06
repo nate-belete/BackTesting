@@ -63,9 +63,10 @@ if st.sidebar.button("Calculate"):
     st.write(f"Both Win & Loss count: {both}")
     st.write(f"Draw count: {draw}")
     st.write(f"Expected ROI for Win: {win_roi.item():.2%}")
-    st.write(f"Expected ROI for Loss: {loss_roi:.2%}")
-    st.write(f"Expected ROI for Both: {both_roi:.2%}")
-    st.write(f"Expected ROI for Draw: {draw_roi:.2%}")
+    st.write(f"Expected ROI for Loss: {loss_roi.item():.2%}")
+    st.write(f"Expected ROI for Both: {both_roi.item():.2%}")
+    st.write(f"Expected ROI for Draw: {draw_roi.item():.2%}")
+
 
 
 
