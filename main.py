@@ -20,8 +20,7 @@ def calculate_return(ticker, start_date, end_date, max_loss_ratio, target_win_ra
         
         high_reached = (row['High'] - row['Open']) / row['Open']
         low_reached = (row['Open'] - row['Low']) / row['Open']
-        high_reached = high_reached.item()
-        low_reached =  low_reached.item()
+
         
         if (high_reached >= target_win_ratio) and (low_reached >= max_loss_ratio):
             both += 1
@@ -91,6 +90,7 @@ if st.sidebar.button("Calculate"):
 
     with tab4:
         st.write(data_m[data_m['Result'] == 'Draw'])
+
 
 
 
